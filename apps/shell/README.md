@@ -1,29 +1,9 @@
-# Rsbuild Project
+# Shell App
 
-## Setup
+Host application for module federation. Loads remote apps and shared modules.
 
-Install the dependencies:
+## Commands
 
-```bash
-pnpm install
-```
-
-## Get Started
-
-Start the dev server:
-
-```bash
-pnpm dev
-```
-
-Build the app for production:
-
-```bash
-pnpm build
-```
-
-Preview the production build locally:
-
-```bash
-pnpm preview
-```
+- `pnpm dev` – Start development server
+- `pnpm build` – Build for production
+- `pnpm preview` – Preview production build
