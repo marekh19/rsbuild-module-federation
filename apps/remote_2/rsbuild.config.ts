@@ -6,6 +6,9 @@ import moduleFederationConfig from "./module-federation.config";
 export default defineConfig({
   plugins: [pluginReact(), pluginModuleFederation(moduleFederationConfig)],
   server: {
-    port: 3002,
+    port: Number(process.env.PORT!),
+  },
+  output: {
+    assetPrefix: process.env.ASSET_PREFIX!,
   },
 });
