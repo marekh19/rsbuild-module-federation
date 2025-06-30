@@ -1,0 +1,39 @@
+.container {
+  position: relative;
+  border-radius: 0.5rem;
+  border: 2px solid #111;
+  height: 100%;
+
+  &.red {
+    border-color: red;
+  }
+
+  &.yellow {
+    border-color: gold;
+  }
+
+  &.blue {
+    border-color: royalblue;
+  }
+}
+
+.label {
+  position: absolute;
+  bottom: 0.125rem;
+  right: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &.red {
+    color: red;
+  }
+
+  &.yellow {
+    color: gold;
+  }
+
+  &.blue {
+    color: royalblue;
+  }
+}

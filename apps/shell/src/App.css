@@ -1,0 +1,47 @@
+:root {
+  --header-height: 4rem;
+  --gap: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  color: #111;
+  background-color: #efefef;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-rows: var(--header-height) 1fr;
+  height: 100%;
+  gap: var(--gap);
+}
+
+.app-header {
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  gap: var(--gap);
+}
+
+.app-main {
+  overflow: auto;
+  padding: calc(1.5 * var(--gap));
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
