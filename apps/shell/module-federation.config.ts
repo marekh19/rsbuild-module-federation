@@ -4,7 +4,7 @@ export default createModuleFederationConfig({
   name: "shell",
   remotes: {
     remote_1: `remote_1@${process.env.REMOTE1_BASE_URL}/mf-manifest.json`,
-    remote_2: `remote_1@${process.env.REMOTE2_BASE_URL}/mf-manifest.json`,
+    remote_2: `remote_2@${process.env.REMOTE2_BASE_URL}/mf-manifest.json`,
   },
   shareStrategy: "loaded-first",
   shared: {
