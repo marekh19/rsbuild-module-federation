@@ -1,2 +1,1 @@
-export { useCounterStore } from "./counterStore";
-export type { CounterStore } from "./counterStore";
+export { useCounterStore, type CounterStore } from "./counterStore";
