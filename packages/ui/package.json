@@ -13,10 +13,10 @@
     "react-dom": "catalog:"
   },
   "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.1",
     "typescript": "^5.8.3"
   },
   "keywords": [],
