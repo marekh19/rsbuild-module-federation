@@ -1,4 +1,4 @@
-# rspack-module-federation
+# rsbuild-module-federation
 
 Monorepo for experimenting with Rsbuild Module Federation.
 
