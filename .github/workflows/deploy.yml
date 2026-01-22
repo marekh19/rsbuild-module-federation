@@ -63,12 +63,3 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/shell
           command: deploy
-
-      - name: ✅ Deployment Summary
-        run: |
-          echo "### Deployment Complete! 🚀" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "All apps have been deployed to Cloudflare Workers:" >> $GITHUB_STEP_SUMMARY
-          echo "- Remote 1: ${{ vars.REMOTE1_URL }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Remote 2: ${{ vars.REMOTE2_URL }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Shell: ${{ vars.SHELL_URL }}" >> $GITHUB_STEP_SUMMARY
