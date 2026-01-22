@@ -2,10 +2,11 @@
   "name": "remote_1",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "rsbuild dev",
     "build": "rsbuild build",
-    "preview": "rsbuild preview",
+    "preview": "wrangler dev",
     "deploy": "wrangler deploy"
   },
   "dependencies": {
