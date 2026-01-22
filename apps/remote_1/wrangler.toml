@@ -1,0 +1,11 @@
+name = "mfe-remote-1"
+compatibility_date = "2026-01-22"
+workers_dev = false
+
+[assets]
+directory = "dist"
+not_found_handling = "single-page-application"
+
+[[routes]]
+pattern = "mfe-remote-1.marek.work"
+custom_domain = true

@@ -1,0 +1,74 @@
+name: Deploy to Cloudflare Workers
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: pnpm
+
+      - name: 📥 Install deps
+        run: pnpm i --frozen-lockfile
+
+      - name: 🏗️ Build Remote 1
+        working-directory: apps/remote_1
+        env:
+          ASSET_PREFIX: ${{ vars.REMOTE1_URL }}
+        run: pnpm build
+
+      - name: 🚀 Deploy Remote 1 to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/remote_1
+          command: deploy
+
+      - name: 🏗️ Build Remote 2
+        working-directory: apps/remote_2
+        env:
+          ASSET_PREFIX: ${{ vars.REMOTE2_URL }}
+        run: pnpm build
+
+      - name: 🚀 Deploy Remote 2 to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/remote_2
+          command: deploy
+
+      - name: 🏗️ Build Shell
+        working-directory: apps/shell
+        env:
+          REMOTE1_BASE_URL: ${{ vars.REMOTE1_URL }}
+          REMOTE2_BASE_URL: ${{ vars.REMOTE2_URL }}
+        run: pnpm build
+
+      - name: 🚀 Deploy Shell to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/shell
+          command: deploy
+
+      - name: ✅ Deployment Summary
+        run: |
+          echo "### Deployment Complete! 🚀" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All apps have been deployed to Cloudflare Workers:" >> $GITHUB_STEP_SUMMARY
+          echo "- Remote 1: ${{ vars.REMOTE1_URL }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Remote 2: ${{ vars.REMOTE2_URL }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Shell: ${{ vars.SHELL_URL }}" >> $GITHUB_STEP_SUMMARY

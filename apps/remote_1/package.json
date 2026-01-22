@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "rsbuild dev",
     "build": "rsbuild build",
-    "preview": "rsbuild preview"
+    "preview": "rsbuild preview",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "react": "catalog:",
@@ -15,11 +16,12 @@
     "zustand": "catalog:"
   },
   "devDependencies": {
-    "@module-federation/rsbuild-plugin": "^0.15.0",
-    "@rsbuild/core": "^1.2.15",
-    "@rsbuild/plugin-react": "^1.1.1",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "~19.1.6",
-    "typescript": "^5.7.2"
+    "@module-federation/rsbuild-plugin": "^0.22.1",
+    "@rsbuild/core": "^1.7.2",
+    "@rsbuild/plugin-react": "^1.4.3",
+    "@types/react": "^19.2.9",
+    "@types/react-dom": "~19.2.3",
+    "typescript": "^5.9.3",
+    "wrangler": "^3.99.0"
   }
 }
