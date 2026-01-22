@@ -23,6 +23,7 @@ const Remote2Component = () => {
       <Button onClick={handleSharedIncrement}>
         Shared count: {sharedCount}
       </Button>
+      <a href={import.meta.env.ASSET_PREFIX} target="_blank">See this app standalone</a>
     </div>
   );
 };
