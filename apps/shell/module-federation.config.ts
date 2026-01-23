@@ -8,10 +8,10 @@ export default createModuleFederationConfig({
   },
   shareStrategy: "loaded-first",
   shared: {
-    react: { singleton: true },
-    "react-dom": { singleton: true },
-    zustand: { singleton: true },
-    "shared-counter": { singleton: true },
-    ui: { singleton: true },
+    react: { singleton: true, requiredVersion: false },
+    "react-dom": { singleton: true, requiredVersion: false },
+    zustand: { singleton: true, requiredVersion: false },
+    "shared-counter": { singleton: true, requiredVersion: false },
+    ui: { singleton: true, requiredVersion: false },
   },
 });
